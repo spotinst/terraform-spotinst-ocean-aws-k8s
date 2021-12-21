@@ -4,8 +4,8 @@ provider "spotinst" {
 }
 
 ## Create Ocean Cluster in Spot.io ##
-module "ocean_eks" {
-  source = "../"
+module "ocean-aws-k8s" {
+  source  = "../"
 
   # Configuration
   cluster_name                = "EKS-Example"
@@ -22,5 +22,5 @@ module "ocean_eks" {
 
 ## Outputs ##
 output "ocean_id" {
-  value = module.ocean_eks.ocean_id
+  value = module.ocean-aws-k8s.ocean_id
 }

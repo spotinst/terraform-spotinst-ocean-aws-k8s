@@ -1,4 +1,5 @@
-# terraform-spotinst-k8s-ocean
+# # Spot Ocean k8s Terraform Module
+
 Spotinst Terraform Module to integrate existing k8s with Ocean
 
 ## Prerequisites
