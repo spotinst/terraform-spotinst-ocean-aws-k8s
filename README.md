@@ -99,4 +99,4 @@ We use GitHub issues for tracking bugs and feature requests. Please use these co
 
 ## Contributing
 
-Please see the [contribution guidelines](CONTRIBUTING.md).
+Please see the [contribution guidelines](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/blob/main/CONTRIBUTING.md).
