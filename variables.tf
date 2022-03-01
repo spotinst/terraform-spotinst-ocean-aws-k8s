@@ -223,7 +223,7 @@ variable "spot_percentage" {
 ## instance_metadata_options ##
 variable "http_tokens" {
   type        = string
-  default     = null
+  default     = "optional"
   description = "Determines if a signed token is required or not. Valid values: optional or required."
 }
 variable "http_put_response_hop_limit" {
