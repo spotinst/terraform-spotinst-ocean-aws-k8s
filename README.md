@@ -64,8 +64,8 @@ module "ocean-aws-k8s" {
   worker_instance_profile_arn = "arn:aws:iam::123456789:instance-profile/Spot-EKS-Workshop-Nodegroup"
   security_groups             = ["sg-123456789","sg-123456789"]
 
-  # Additional Tags
-  tags = {CreatedBy = "Terraform"}
+  # Overwrite Name Tag and add additional
+  tags = {Name = "Ocean-Nodes", CreatedBy = "Terraform"}
 }
 ```
 
