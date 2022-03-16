@@ -29,11 +29,7 @@ resource "spotinst_ocean_aws" "ocean" {
     name                              = var.load_balancer_name
     type                              = var.load_balancer_type
   }
-  ## Required Tags ##
-  tags {
-    key   = "Name"
-    value = "${var.cluster_name}-ocean-cluster-node"
-  }
+  ## Required Tag ##
   tags {
     key   = "kubernetes.io/cluster/${var.cluster_name}"
     value = "owned"
@@ -48,7 +44,7 @@ resource "spotinst_ocean_aws" "ocean" {
   }
   # Additional Tags
   dynamic tags {
-    for_each = var.tags == null ? {} : var.tags
+    for_each = var.tags == null ? {Name = "${var.cluster_name}-ocean-cluster-node"} : var.tags
     content {
       key = tags.key
       value = tags.value
