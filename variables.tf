@@ -171,22 +171,17 @@ variable "use_as_template_only" {
 }
 
 ## Load Balancers ##
-variable "load_balancer_arn" {
-  type        = string
-  default     = null
-  description = "(Optional) Required if type is set to TARGET_GROUP"
-}
-variable "load_balancer_name" {
-  type        = string
-  default     = null
-  description = "(Optional) Required if type is set to CLASSIC"
-}
-variable "load_balancer_type" {
-  type        = string
-  default     = null
-  description = "(Optional) Can be set to CLASSIC or TARGET_GROUP"
+variable "load_balancer" {
+  type = list(object({
+    load_balancer_arn = string
+    name              = string
+    type              = string
+  }))
+  default             = null
+  description         = "load_balancer object"
 }
 ##########################
+
 variable "tags" {
   type        = map(string)
   default     = null
@@ -254,6 +249,16 @@ variable "auto_headroom_percentage" {
   default     = 5
   description = "Set the auto headroom percentage (a number in the range [0, 200]) which controls the percentage of headroom from the cluster."
 }
+variable "enable_automatic_and_manual_headroom" {
+  type        = bool
+  default     = null
+  description = "Default: false. Enables automatic and manual headroom to work in parallel. When set to false, automatic headroom overrides all other headroom definitions manually configured, whether they are at cluster or VNG level."
+}
+variable "extended_resource_definitions" {
+  type        = list(string)
+  default     = null
+  description = "List of Ocean extended resource definitions to use in this cluster."
+}
 ## autoscale_headroom ##
 variable "cpu_per_unit" {
   type        = number
@@ -311,33 +316,53 @@ variable "launch_spec_ids" {
   default     = null
   description = "List of virtual node group identifiers to be rolled."
 }
+variable "respect_pdb" {
+  type        = bool
+  default     = null
+  description = "Default: false. During the roll, if the parameter is set to True we honor PDB during the instance replacement."
+}
+variable "batch_min_healthy_percentage" {
+  type        = number
+  default     = null
+  description = "Default: 50. Indicates the threshold of minimum healthy instances in single batch. If the amount of healthy instances in single batch is under the threshold, the cluster roll will fail. If exists, the parameter value will be in range of 1-100. In case of null as value, the default value in the backend will be 50%. Value of param should represent the number in percentage (%) of the batch."
+}
+variable "auto_apply_tags" {
+  type        = bool
+  default     = null
+  description = "Default: false. Will update instance tags on the fly without rolling the cluster."
+}
+variable "conditioned_roll" {
+  type        = bool
+  default     = null
+  description = "Default: false. Spot will perform a cluster Roll in accordance with a relevant modification of the cluster’s settings. When set to true , only specific changes in the cluster’s configuration will trigger a cluster roll (such as AMI, Key Pair, user data, instance types, load balancers, etc)."
+}
 ##########################
 
+variable "data_integration_id" {
+  type        = string
+  default     = null
+  description = "The identifier of The S3 data integration to export the logs to."
+}
+
 # shutdown_hours #
-variable "shutdown_is_enabled" {
-  type        = bool
-  default     = false
-  description = "Toggle the shutdown hours task."
+variable "shutdown_hours" {
+  type = object({
+    is_enabled   = bool
+    time_windows = list(string)
+  })
+  default = null
+  description = "shutdown_hours object"
 }
-variable "shutdown_time_windows" {
-  type        = list(string)
-  default     = ["Sat:20:00-Sun:04:00","Sun:20:00-Mon:04:00"]
-  description = "Set time windows for shutdown hours. Specify a list of timeWindows with at least one time window Each string is in the format of: ddd:hh:mm-ddd:hh:mm where ddd = day of week = Sun | Mon | Tue | Wed | Thu | Fri | Sat, hh = hour 24 = 0 -23, mm = minute = 0 - 59. Time windows should not overlap. Required if cluster.scheduling.isEnabled is true."
-}
+###################
+
 # task scheduling #
-variable "taskscheduling_is_enabled" {
-  type        = bool
-  default     = false
-  description = "Describes whether the task is enabled. When true the task should run when false it should not run. Required for cluster.scheduling.tasks object."
-}
-variable "cron_expression" {
-  type        = string
-  default     = "0 1 * * *"
-  description = "A valid cron expression. The cron is running in UTC time zone and is in Unix cron format Cron Expression Validator Script. Only one of frequency or cronExpression should be used at a time. Required for cluster.scheduling.tasks object. (Example: 0 1 * * *)."
-}
-variable "task_type" {
-  type        = string
-  default     = "clusterRoll"
-  description = "Valid values: clusterRoll. Required for cluster.scheduling.tasks object. (Example: clusterRoll)"
+variable "tasks" {
+  type = list(object({
+    is_enabled        = bool
+    cron_expression   = string
+    task_type         = string
+  }))
+  default = null
+  description = "task object"
 }
 ###################
