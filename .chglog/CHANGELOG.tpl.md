@@ -6,14 +6,14 @@
 ### {{ .Title }}
 {{ range .Commits -}}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
-{{ end }}
-{{ end -}}
-{{ else }}
-{{ range .Unreleased.Commits -}}
+  {{ end }}
+  {{ end -}}
+  {{ else }}
+  {{ range .Unreleased.Commits -}}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
-{{ end }}
-{{ end -}}
-{{ end -}}
+  {{ end }}
+  {{ end -}}
+  {{ end -}}
 
 {{ range .Versions }}
 <a name="{{ .Tag.Name }}"></a>
@@ -23,13 +23,13 @@
 ### {{ .Title }}
 {{ range .Commits -}}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
-{{ end }}
-{{ end -}}
-{{ else }}
-{{ range .Commits -}}
+  {{ end }}
+  {{ end -}}
+  {{ else }}
+  {{ range .Commits -}}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
-{{ end }}
-{{ end -}}
+  {{ end }}
+  {{ end -}}
 
 {{- if .NoteGroups -}}
 {{ range .NoteGroups -}}
