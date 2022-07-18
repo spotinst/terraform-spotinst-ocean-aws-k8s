@@ -1,11 +1,6 @@
-provider "spotinst" {
-  token   = "redacted"
-  account = "redacted"
-}
-
 ## Create Ocean Cluster in Spot.io ##
 module "ocean-aws-k8s" {
-  source  = "../"
+  source  = "spotinst/ocean-aws-k8s/spotinst"
 
   # Configuration
   cluster_name                = "EKS-Example"
@@ -17,6 +12,12 @@ module "ocean-aws-k8s" {
 
   # Additional Tags
   tags = {CreatedBy = "terraform"}
+
+  # update_policy
+  should_roll           = true
+  auto_apply_tags       = true
+  batch_size_percentage = 20
+  respect_pdb           = false
 }
 
 
