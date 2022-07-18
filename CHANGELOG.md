@@ -6,12 +6,6 @@
 <a name="v0.2.2"></a>
 ## [v0.2.2] (July 16, 2022)
 
-  - Merge branch 'steven1' of https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s into steven1
-  - add task, schedule, loadbalancer, examples
-  - update versions
-  - Merge
-  - Update git-chglog
-  - Merge branch 'main' into steven1
   - add task, schedule, loadbalancer, examples
   - Merge pull request [#4](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/4) from datamechanics/upgrade-aws-provider
   - [change] change AWS provider from ~> 3.70 to >= 3.75
