@@ -62,6 +62,7 @@ resource "spotinst_ocean_aws" "ocean" {
   draining_timeout                = var.draining_timeout
   grace_period                    = var.grace_period
   spot_percentage                 = var.spot_percentage
+  utilize_commitments             = var.utilize_commitments
 
   instance_metadata_options {
     http_tokens                   = var.http_tokens
