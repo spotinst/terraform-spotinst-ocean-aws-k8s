@@ -213,6 +213,11 @@ variable "spot_percentage" {
   default     = null
   description = "The % of the cluster should be running on Spot vs OD. 100 means 100% of the cluster will be ran on Spot instances"
 }
+variable "utilize_commitments" {
+  type        = bool
+  default     = false
+  description = "If savings plans commitment has available capacity, Ocean will utilize them alongside RIs (if exist) to maximize cost efficiency."
+}
 ##########################
 
 ## instance_metadata_options ##
