@@ -1,8 +1,12 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
-  
-  
+<a name="v0.2.3"></a>
+## [v0.2.3] (December 5, 2022)
+
+  - added field utilize_commitments to module (#6)
+
+
 <a name="v0.2.2"></a>
 ## [v0.2.2] (July 16, 2022)
 
