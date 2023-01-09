@@ -173,7 +173,7 @@ variable "use_as_template_only" {
 ## Load Balancers ##
 variable "load_balancer" {
   type = list(object({
-    load_balancer_arn = string
+    arn               = string
     name              = string
     type              = string
   }))

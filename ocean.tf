@@ -27,7 +27,7 @@ resource "spotinst_ocean_aws" "ocean" {
   use_as_template_only                = var.use_as_template_only
 
   dynamic "load_balancers" {
-    for_each = var.load_balancer != null ? [var.load_balancer] : []
+    for_each = var.load_balancer != null ? var.load_balancer : []
     content {
       arn   = load_balancers.value.arn
       name  = load_balancers.value.name
@@ -115,7 +115,8 @@ resource "spotinst_ocean_aws" "ocean" {
     }
   }
 
-  ## Scheduled Task ##
+
+  # Scheduled Task ##
   scheduled_task {
     dynamic "shutdown_hours" {
       for_each            = var.shutdown_hours != null ? [var.shutdown_hours] : []
