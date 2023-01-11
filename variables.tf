@@ -3,6 +3,11 @@ variable "cluster_name" {
   type        = string
   description = "Cluster name"
 }
+variable "controller_id" {
+  type        = string
+  default     = null
+  description = "Unique identifier for the Ocean controller. If not specified the cluster name will be used."
+}
 variable "region" {
   type        = string
   description = "The region the cluster is located"
@@ -34,93 +39,32 @@ variable "whitelist" {
 variable "blacklist" {
   type        = list(string)
   description = "List of instance types not allowed in the Ocean cluster (`whitelist` and `blacklist` are mutually exclusive)"
-  default     = [
-    "c6g.12xlarge",
-    "c6g.16xlarge",
-    "c6g.2xlarge",
-    "c6g.4xlarge",
-    "c6g.8xlarge",
-    "c6g.large",
-    "c6g.medium",
-    "c6g.metal",
-    "c6g.xlarge",
-    "c6gd.12xlarge",
-    "c6gd.16xlarge",
-    "c6gd.2xlarge",
-    "c6gd.4xlarge",
-    "c6gd.8xlarge",
-    "c6gd.large",
-    "c6gd.medium",
-    "c6gd.metal",
-    "c6gd.xlarge",
-    "c6gn.12xlarge",
-    "c6gn.16xlarge",
-    "c6gn.2xlarge",
-    "c6gn.4xlarge",
-    "c6gn.8xlarge",
-    "c6gn.large",
-    "c6gn.medium",
-    "c6gn.xlarge",
-    "m6g.12xlarge",
-    "m6g.16xlarge",
-    "m6g.2xlarge",
-    "m6g.4xlarge",
-    "m6g.8xlarge",
-    "m6g.large",
-    "m6g.medium",
-    "m6g.metal",
-    "m6g.xlarge",
-    "m6gd.12xlarge",
-    "m6gd.16xlarge",
-    "m6gd.2xlarge",
-    "m6gd.4xlarge",
-    "m6gd.8xlarge",
-    "m6gd.large",
-    "m6gd.medium",
-    "m6gd.metal",
-    "m6gd.xlarge",
-    "r6g.12xlarge",
-    "r6g.16xlarge",
-    "r6g.2xlarge",
-    "r6g.4xlarge",
-    "r6g.8xlarge",
-    "r6g.large",
-    "r6g.medium",
-    "r6g.metal",
-    "r6g.xlarge",
-    "r6gd.12xlarge",
-    "r6gd.16xlarge",
-    "r6gd.2xlarge",
-    "r6gd.4xlarge",
-    "r6gd.8xlarge",
-    "r6gd.large",
-    "r6gd.medium",
-    "r6gd.metal",
-    "r6gd.xlarge",
-    "t2.medium",
-    "t2.xlarge",
-    "t2.large",
-    "t2.2xlarge",
-    "t2.micro",
-    "t2.small",
-    "t3.small",
-    "t3.medium",
-    "t3.xlarge",
-    "t3.2xlarge",
-    "t3.large",
-    "t3.micro",
-    "t3a.large",
-    "t3a.xlarge",
-    "t3a.medium",
-    "t3a.2xlarge",
-    "t3a.small",
-    "t3a.micro",
-    "t4g.2xlarge",
-    "t4g.large",
-    "t4g.medium",
-    "t4g.micro",
-    "t4g.small",
-    "t4g.xlarge"]
+  default     = null
+}
+variable "filters" {
+  type = object({
+    architectures             = list(string)
+    categories                = list(string)
+    disk_types                = list(string)
+    exclude_families          = list(string)
+    exclude_metal             = bool
+    hypervisor                = list(string)
+    include_families          = list(string)
+    is_ena_supported          = bool
+    max_gpu                   = number
+    min_gpu                   = number
+    max_memory_gib            = number
+    max_network_performance   = number
+    max_vcpu                  = number
+    min_enis                  = number
+    min_memory_gib            = number
+    min_network_performance   = number
+    min_vcpu                  = number
+    root_device_types         = list(string)
+    virtualization_types      = list(string)
+  })
+  default     = null
+  description = "List of filters. The Instance types that match with all filters compose the Ocean's whitelist parameter. Cannot be configured together with whitelist/blacklist."
 }
 variable "user_data" {
   type        = string
