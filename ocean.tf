@@ -1,5 +1,4 @@
 ## Create Ocean Cluster in Spot.io
-
 resource "spotinst_ocean_aws" "ocean" {
   name                                = var.cluster_name
   controller_id                       = var.controller_id == null ? var.cluster_name : var.controller_id
@@ -168,3 +167,8 @@ resource "spotinst_ocean_aws" "ocean" {
     ]
   }
 }
+
+
+
+
+
