@@ -17,7 +17,6 @@ module "ocean-aws-k8s" {
   ...
 }
 
-## Option 1 to initialize kubernetes provider ##
 # Data Resources for kubernetes provider
 data "aws_eks_cluster" "cluster" {
   name    = "cluster name"
@@ -32,12 +31,6 @@ provider "kubernetes" {
 }
 ##################
 
-## Option 2 to initialize kubernetes provider ##
-provider "kubernetes" {
-  config_path = "~/.kube/config"
-}
-##################
-
 module "ocean-controller" {
   source = "spotinst/ocean-controller/spotinst"
 
@@ -46,11 +39,12 @@ module "ocean-controller" {
   spotinst_account = "redacted"
 
   # Configuration.
+  tolerations = []
   cluster_identifier = "cluster name"
 }
 ```
 
-~> You must configure the same `cluster_identifier` both for the Ocean controller and for the `spotinst_ocean_aws` resource. The `k8s-ocean` module will use the cluster name as the identifier. Ensure this is also used in the controller config
+~> You must configure the same `cluster_identifier` both for the Ocean controller and for the `spotinst_ocean_aws` resource. The `ocean-aws-k8s` module will use the cluster name as the identifier. Ensure this is also used in the controller config
 
 ## Usage
 ```hcl
@@ -73,13 +67,14 @@ module "ocean-aws-k8s" {
 
 | Name | Version |
 |------|---------|
-| spotinst/spotinst | >= 1.64.1 |
-| hashicorp/aws |  |
+| spotinst/spotinst | >= 1.94 |
+| hashicorp/aws |         |
 
 ## Modules
 * `ocean-aws-k8s` - Creates Ocean Cluster
 * `ocean-controller` - Create and installs Spot Ocean controller pod [Doc](https://registry.terraform.io/modules/spotinst/ocean-controller/spotinst/latest)
 * `ocean-aws-k8s-vng` - (Optional) Add custom virtual node groups [Doc](https://registry.terraform.io/modules/spotinst/ocean-aws-k8s-vng/spotinst/latest)
+
 ## Documentation
 
 If you're new to [Spot](https://spot.io/) and want to get started, please checkout our [Getting Started](https://docs.spot.io/connect-your-cloud-provider/) guide, available on the [Spot Documentation](https://docs.spot.io/) website.

@@ -1,8 +1,7 @@
 ## Create Ocean Cluster in Spot.io
-
 resource "spotinst_ocean_aws" "ocean" {
   name                                = var.cluster_name
-  controller_id                       = var.cluster_name
+  controller_id                       = var.controller_id == null ? var.cluster_name : var.controller_id
   region                              = var.region
   max_size                            = var.max_size
   min_size                            = var.min_size
@@ -10,6 +9,31 @@ resource "spotinst_ocean_aws" "ocean" {
   subnet_ids                          = var.subnet_ids
   whitelist                           = var.whitelist
   blacklist                           = var.blacklist
+  dynamic "filters" {
+    for_each = var.filters != null ? [var.filters] : []
+    content {
+      architectures             = filters.value.architectures
+      categories                = filters.value.categories
+      disk_types                = filters.value.disk_types
+      exclude_families          = filters.value.exclude_families
+      exclude_metal             = filters.value.exclude_metal
+      hypervisor                = filters.value.hypervisor
+      include_families          = filters.value.include_families
+      is_ena_supported          = filters.value.is_ena_supported
+      max_gpu                   = filters.value.max_gpu
+      min_gpu                   = filters.value.min_gpu
+      max_memory_gib            = filters.value.max_memory_gib
+      max_network_performance   = filters.value.max_network_performance
+      max_vcpu                  = filters.value.max_vcpu
+      min_enis                  = filters.value.min_enis
+      min_memory_gib            = filters.value.min_memory_gib
+      min_network_performance   = filters.value.min_network_performance
+      min_vcpu                  = filters.value.min_vcpu
+      root_device_types         = filters.value.root_device_types
+      virtualization_types      = filters.value.virtualization_types
+    }
+  }
+
   user_data                           = var.user_data !=null ? var.user_data : <<-EOF
                                           #!/bin/bash
                                           set -o xtrace
@@ -27,7 +51,7 @@ resource "spotinst_ocean_aws" "ocean" {
   use_as_template_only                = var.use_as_template_only
 
   dynamic "load_balancers" {
-    for_each = var.load_balancer != null ? [var.load_balancer] : []
+    for_each = var.load_balancer != null ? var.load_balancer : []
     content {
       arn   = load_balancers.value.arn
       name  = load_balancers.value.name
@@ -115,7 +139,8 @@ resource "spotinst_ocean_aws" "ocean" {
     }
   }
 
-  ## Scheduled Task ##
+
+  # Scheduled Task ##
   scheduled_task {
     dynamic "shutdown_hours" {
       for_each            = var.shutdown_hours != null ? [var.shutdown_hours] : []
@@ -142,3 +167,8 @@ resource "spotinst_ocean_aws" "ocean" {
     ]
   }
 }
+
+
+
+
+
