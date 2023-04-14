@@ -13,22 +13,13 @@ module "ocean-aws-k8s" {
   # Additional Tags
   tags = {CreatedBy = "terraform"}
 
-  load_balancer = [
-    {
-      arn               = "arn:aws:elasticloadbalancing:us-west-2:123456789:targetgroup/ALB-sandbox/af01fd9e94c06762",
-      name              = "Example"
-      type              = "TARGET_GROUP"
-    }
-  ]
-  # update_policy
-  should_roll           = true
-  auto_apply_tags       = true
-  batch_size_percentage = 20
-  respect_pdb           = false
-}
-
-
-## Outputs ##
-output "ocean_id" {
-  value = module.ocean-aws-k8s.ocean_id
+  shutdown_hours = {
+    is_enabled   = false
+    time_windows = [  "Tue:01:00-Tue:07:00",
+      "Wed:01:00-Wed:07:00",
+      "Thu:01:00-Thu:07:00",
+      "Fri:01:00-Fri:07:00",
+      "Sat:01:00-Sat:07:00",
+      "Sun:01:00-Mon:07:00"]
+  }
 }

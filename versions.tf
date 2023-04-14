@@ -4,7 +4,7 @@ terraform {
   required_providers {
     spotinst = {
       source  = "spotinst/spotinst"
-      version = ">= 1.94"
+      version = ">= 1.104"
     }
     aws = {
       source  = "hashicorp/aws"

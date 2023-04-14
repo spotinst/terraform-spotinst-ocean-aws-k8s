@@ -12,21 +12,4 @@ module "ocean-aws-k8s" {
 
   # Additional Tags
   tags = {CreatedBy = "terraform"}
-
-  shutdown_hours = {
-    is_enabled   = false
-    time_windows = [  "Tue:01:00-Tue:07:00",
-      "Wed:01:00-Wed:07:00",
-      "Thu:01:00-Thu:07:00",
-      "Fri:01:00-Fri:07:00",
-      "Sat:01:00-Sat:07:00",
-      "Sun:01:00-Mon:07:00"]
-  }
 }
-
-
-## Outputs ##
-output "ocean_id" {
-  value = module.ocean-aws-k8s.ocean_id
-}
-

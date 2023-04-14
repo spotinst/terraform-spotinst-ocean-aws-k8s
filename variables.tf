@@ -43,32 +43,32 @@ variable "blacklist" {
 }
 variable "filters" {
   type = object({
-    architectures             = list(string)
-    categories                = list(string)
-    disk_types                = list(string)
-    exclude_families          = list(string)
-    exclude_metal             = bool
-    hypervisor                = list(string)
-    include_families          = list(string)
-    is_ena_supported          = bool
-    max_gpu                   = number
-    min_gpu                   = number
-    max_memory_gib            = number
-    max_network_performance   = number
-    max_vcpu                  = number
-    min_enis                  = number
-    min_memory_gib            = number
-    min_network_performance   = number
-    min_vcpu                  = number
-    root_device_types         = list(string)
-    virtualization_types      = list(string)
+    architectures           = list(string)
+    categories              = list(string)
+    disk_types              = list(string)
+    exclude_families        = list(string)
+    exclude_metal           = bool
+    hypervisor              = list(string)
+    include_families        = list(string)
+    is_ena_supported        = bool
+    max_gpu                 = number
+    min_gpu                 = number
+    max_memory_gib          = number
+    max_network_performance = number
+    max_vcpu                = number
+    min_enis                = number
+    min_memory_gib          = number
+    min_network_performance = number
+    min_vcpu                = number
+    root_device_types       = list(string)
+    virtualization_types    = list(string)
   })
   default     = null
   description = "List of filters. The Instance types that match with all filters compose the Ocean's whitelist parameter. Cannot be configured together with whitelist/blacklist."
 }
 variable "user_data" {
-  type        = string
-  default     = null
+  type    = string
+  default = null
 }
 variable "ami_id" {
   type        = string
@@ -90,8 +90,13 @@ variable "worker_instance_profile_arn" {
 }
 variable "associate_public_ip_address" {
   type        = bool
-  default     = null
-  description = "Associate a public IP address to worker nodes"
+  default     = false
+  description = "(Optional, Default: false) Configure public IP address allocation."
+}
+variable "associate_ipv6_address" {
+  type        = bool
+  default     = false
+  description = "(Optional, Default: false) Configure IPv6 address allocation."
 }
 variable "root_volume_size" {
   type        = number
@@ -117,12 +122,12 @@ variable "use_as_template_only" {
 ## Load Balancers ##
 variable "load_balancer" {
   type = list(object({
-    arn               = string
-    name              = string
-    type              = string
+    arn  = string
+    name = string
+    type = string
   }))
-  default             = null
-  description         = "load_balancer object"
+  default     = null
+  description = "load_balancer object"
 }
 ##########################
 
@@ -161,6 +166,16 @@ variable "utilize_commitments" {
   type        = bool
   default     = false
   description = "If savings plans commitment has available capacity, Ocean will utilize them alongside RIs (if exist) to maximize cost efficiency."
+}
+variable "spread_nodes_by" {
+  type        = string
+  default     = "count"
+  description = "(Optional, Default: count) Ocean will spread the nodes across markets by this value. Possible values: vcpu or count."
+}
+variable "availability_vs_cost" {
+  type        = string
+  default     = "balanced"
+  description = "(Optional, Default: balanced) You can control the approach that Ocean takes while launching nodes by configuring this value. Possible values: costOriented,balanced,cheapest."
 }
 ##########################
 
@@ -299,7 +314,7 @@ variable "shutdown_hours" {
     is_enabled   = bool
     time_windows = list(string)
   })
-  default = null
+  default     = null
   description = "shutdown_hours object"
 }
 ###################
@@ -307,11 +322,11 @@ variable "shutdown_hours" {
 # task scheduling #
 variable "tasks" {
   type = list(object({
-    is_enabled        = bool
-    cron_expression   = string
-    task_type         = string
+    is_enabled      = bool
+    cron_expression = string
+    task_type       = string
   }))
-  default = null
+  default     = null
   description = "task object"
 }
 ###################

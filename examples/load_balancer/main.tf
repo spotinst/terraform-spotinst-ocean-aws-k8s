@@ -12,10 +12,17 @@ module "ocean-aws-k8s" {
 
   # Additional Tags
   tags = {CreatedBy = "terraform"}
-}
 
-
-## Outputs ##
-output "ocean_id" {
-  value = module.ocean-aws-k8s.ocean_id
+  load_balancer = [
+    {
+      arn               = "arn:aws:elasticloadbalancing:us-west-2:123456789:targetgroup/ALB-sandbox/af01fd9e94c06762",
+      name              = "Example"
+      type              = "TARGET_GROUP"
+    }
+  ]
+  # update_policy
+  should_roll           = true
+  auto_apply_tags       = true
+  batch_size_percentage = 20
+  respect_pdb           = false
 }
