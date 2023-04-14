@@ -1,16 +1,15 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+  - Add examples and update cluster orientation and ipv6
   
   
 <a name="v0.2.4"></a>
-## [v0.2.4] (February 13, 2023)
+## [v0.2.4] (February 14, 2023)
 
-  - [fix] loadbalancer object to match documentation
-  - added filters for instanceTypes ([#9](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/9))
-  - added examples
-  - updated provider version from 1.64.1 to 1.94
-  - added controller_id to outputs
+  - Changelog update ([#10](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/10))
+  - V0.2.4 ([#9](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/9))
+  - Update CHANGELOG.md ([#7](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/7))
   
   
 <a name="v0.2.3"></a>
