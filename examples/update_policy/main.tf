@@ -19,9 +19,3 @@ module "ocean-aws-k8s" {
   batch_size_percentage = 20
   respect_pdb           = false
 }
-
-
-## Outputs ##
-output "ocean_id" {
-  value = module.ocean-aws-k8s.ocean_id
-}
