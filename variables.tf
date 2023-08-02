@@ -154,7 +154,7 @@ variable "draining_timeout" {
 }
 variable "grace_period" {
   type        = number
-  default     = 600
+  default     = 300
   description = "The amount of time, in seconds, after the instance has launched to start checking its health."
 }
 variable "spot_percentage" {
