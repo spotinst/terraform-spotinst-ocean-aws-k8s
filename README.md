@@ -68,7 +68,23 @@ module "ocean-aws-k8s" {
   security_groups             = ["sg-123456789","sg-123456789"]
 
   # Overwrite Name Tag and add additional
-  tags = {Name = "Ocean-Nodes", CreatedBy = "Terraform"}
+  tags                        = {Name = "Ocean-Nodes", CreatedBy = "Terraform"}
+
+  # Block Device Mappings
+  block_device_mappings       = [{
+    device_name               = "/dev/xvda"
+    delete_on_termination     = true
+    encrypted                 = false
+    kms_key_id                = "alias/aws/ebs"
+    snapshot_id               = null
+    iops                      = 1
+    volume_type               = "gp2"
+    volume_size               = null
+    throughput                = 125 }]
+  dynamic_volume_size         = {
+    base_size                 = 50
+    resource                  = "CPU"
+    size_per_resource_unit    = 20 }
 }
 
 data "aws_iam_instance_profiles" "profile" {
@@ -192,6 +208,8 @@ No modules.
 | <a name="input_utilize_reserved_instances"></a> [utilize\_reserved\_instances](#input\_utilize\_reserved\_instances) | If there are any vacant Reserved Instances, launch On-Demand to consume them | `bool` | `true` | no |
 | <a name="input_whitelist"></a> [whitelist](#input\_whitelist) | List of instance types allowed in the Ocean cluster (`whitelist` and `blacklist` are mutually exclusive) | `list(string)` | `null` | no |
 | <a name="input_worker_instance_profile_arn"></a> [worker\_instance\_profile\_arn](#input\_worker\_instance\_profile\_arn) | The instance profile iam role. | `string` | n/a | yes |
+| <a name="input_block_device_mappings"></a> [block\_device\_mappings](#input\_block\_device\_mappings) | block\_device\_mapping object | <pre>list(object({<br>  device_name               = string<br>  delete_on_termination              = bool<br>  encrypted              = bool<br>  kms_key_id              = string<br>  snapshot_id              = string<br>  volume_type              = string<br>  iops                 = number<br>  volume_size              = number<br>  throughput              = number<br>  }))</pre> | `[]` | no |
+| <a name="input_dynamic_volume_size"></a> [dynamic\_volume\_size](#input\_dynamic\_volume\_size) | dynamic\_volume\_size object | <pre>object({<br>base_size   = number<br>size_per_resource_unit = number<br>resource = string<br>    })</pre> | `null` | no |
 
 ## Outputs
 
