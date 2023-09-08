@@ -3,9 +3,16 @@
 
   
   
+<a name="v0.3.0"></a>
+## [v0.3.0] (September 8, 2023)
+
+  - Spotaut 16394 support bdm ([#15](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/15))
+  
+  
 <a name="v0.2.6"></a>
 ## [v0.2.6] (August 2, 2023)
 
+  - Changelog update ([#14](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/14))
   - Reduced grace period ([#13](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/13))
   - [src] removed common workflow
   - [src] added common workflow
@@ -65,7 +72,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.6...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.6...v0.3.0
 [v0.2.6]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.5...v0.2.6
 [v0.2.5]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.4...v0.2.5
 [v0.2.4]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.3...v0.2.4
