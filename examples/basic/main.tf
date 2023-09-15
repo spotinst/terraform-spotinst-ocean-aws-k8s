@@ -27,7 +27,7 @@ module "ocean-aws-k8s" {
     base_size                 = 50
     resource                  = "CPU"
     size_per_resource_unit    = 20 }
-  dynamic_iops         = {
+  dynamic_iops                = {
     base_size                 = 30
     resource                  = "CPU"
     size_per_resource_unit    = 10 }
