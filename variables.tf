@@ -356,4 +356,13 @@ variable "dynamic_volume_size" {
   default     = null
   description = "dynamic_volume_size Object"
 }
+variable "dynamic_iops" {
+  type = object({
+    base_size              = number
+    resource               = string
+    size_per_resource_unit = number
+  })
+  default     = null
+  description = "dynamic_iops Object"
+}
 ##################

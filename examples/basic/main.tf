@@ -20,11 +20,15 @@ module "ocean-aws-k8s" {
     kms_key_id                = "alias/aws/ebs"
     snapshot_id               = null
     iops                      = 1
-    volume_type               = "gp2"
+    volume_type               = "gp3"
     volume_size               = null
     throughput                = 125 }]
   dynamic_volume_size         = {
     base_size                 = 50
     resource                  = "CPU"
     size_per_resource_unit    = 20 }
+  dynamic_iops         = {
+    base_size                 = 30
+    resource                  = "CPU"
+    size_per_resource_unit    = 10 }
 }
