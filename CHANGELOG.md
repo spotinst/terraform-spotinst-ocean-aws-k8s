@@ -3,9 +3,16 @@
 
   
   
+<a name="v0.4.0"></a>
+## [v0.4.0] (September 15, 2023)
+
+  - added `dynamic_iops` object support ([#18](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/18))
+  
+  
 <a name="v0.3.0"></a>
 ## [v0.3.0] (September 8, 2023)
 
+  - changelog v0.3.0 ([#16](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/16))
   - Spotaut 16394 support bdm ([#15](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/15))
   
   
@@ -72,7 +79,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.6...v0.3.0
 [v0.2.6]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.5...v0.2.6
 [v0.2.5]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.4...v0.2.5
