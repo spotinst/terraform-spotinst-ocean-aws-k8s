@@ -31,4 +31,6 @@ module "ocean-aws-k8s" {
     base_size                 = 30
     resource                  = "CPU"
     size_per_resource_unit    = 10 }
+  # Images
+  images                      = {image_id = "ami-12345"}
 }

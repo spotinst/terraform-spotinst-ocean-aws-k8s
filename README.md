@@ -85,6 +85,8 @@ module "ocean-aws-k8s" {
     base_size                 = 50
     resource                  = "CPU"
     size_per_resource_unit    = 20 }
+  # Images
+  images                      = {image_id = "ami-12345"}
 }
 
 data "aws_iam_instance_profiles" "profile" {

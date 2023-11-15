@@ -365,4 +365,9 @@ variable "dynamic_iops" {
   default     = null
   description = "dynamic_iops Object"
 }
+variable "images" {
+  type        = map(string)
+  default     = null
+  description = "Array of objects (Image object, containing the id of the image used to launch instances.)"
+}
 ##################

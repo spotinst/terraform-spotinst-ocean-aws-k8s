@@ -197,6 +197,12 @@ resource "spotinst_ocean_aws" "ocean" {
       }
     }
   }
+  dynamic "images" {
+      for_each = var.images
+      content {
+        image_id   = images.image_id
+      }
+    }
 
 
   # Prevent Capacity from changing during updates
