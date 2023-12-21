@@ -31,4 +31,15 @@ module "ocean-aws-k8s" {
     base_size                 = 30
     resource                  = "CPU"
     size_per_resource_unit    = 10 }
+  block_device_mappings       = [{
+    device_name               = "/dev/xvda"
+    encrypted                 = true
+    volume_type               = "gp3"
+  }
+  ]
+  dynamic_volume_size         = {
+    base_size                 = 60
+    resource                  = "CPU"
+    size_per_resource_unit    = 30
+  }
 }
