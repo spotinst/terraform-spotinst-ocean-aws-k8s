@@ -134,9 +134,10 @@ resource "spotinst_ocean_aws" "ocean" {
 
   # Policy when config is updated
   update_policy {
-    should_roll      = var.should_roll
-    conditioned_roll = var.conditioned_roll
-    auto_apply_tags  = var.auto_apply_tags
+    should_roll             = var.should_roll
+    conditioned_roll        = var.conditioned_roll
+    auto_apply_tags         = var.auto_apply_tags
+    conditioned_roll_params = var.conditioned_roll_params
     roll_config {
       batch_size_percentage        = var.batch_size_percentage
       launch_spec_ids              = var.launch_spec_ids

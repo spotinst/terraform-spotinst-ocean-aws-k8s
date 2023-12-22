@@ -300,6 +300,10 @@ variable "conditioned_roll" {
   default     = null
   description = "Default: false. Spot will perform a cluster Roll in accordance with a relevant modification of the cluster’s settings. When set to true , only specific changes in the cluster’s configuration will trigger a cluster roll (such as AMI, Key Pair, user data, instance types, load balancers, etc)."
 }
+variable "conditioned_roll_params" {
+  type        = list(string)
+  default     = null
+  description = "Customized List of conditioned roll params, it is valid only when conditioned_roll set to true"}
 ##########################
 
 variable "data_integration_id" {
