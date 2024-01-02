@@ -3,9 +3,16 @@
 
   
   
+<a name="v0.6.0"></a>
+## [v0.6.0] (January 2, 2024)
+
+  - Spotaut 17246 tf https spotinst.atlassian.net browse prod 7165 ([#23](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/23))
+  
+  
 <a name="v0.5.0"></a>
 ## [v0.5.0] (January 2, 2024)
 
+  - changelog 0.5.0 ([#22](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/22))
   - fixed the attributes of `block_device_mapping` object to accept null ([#21](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/21))
   
   
@@ -86,7 +93,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.6.0...HEAD
+[v0.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.6...v0.3.0
