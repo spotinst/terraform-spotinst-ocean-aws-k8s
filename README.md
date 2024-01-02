@@ -73,18 +73,15 @@ module "ocean-aws-k8s" {
   # Block Device Mappings
   block_device_mappings       = [{
     device_name               = "/dev/xvda"
-    delete_on_termination     = true
-    encrypted                 = false
-    kms_key_id                = "alias/aws/ebs"
-    snapshot_id               = null
-    iops                      = 1
-    volume_type               = "gp2"
-    volume_size               = null
-    throughput                = 125 }]
+    encrypted                 = true
+    volume_type               = "gp3"
+  }
+  ]
   dynamic_volume_size         = {
-    base_size                 = 50
+    base_size                 = 60
     resource                  = "CPU"
-    size_per_resource_unit    = 20 }
+    size_per_resource_unit    = 30
+  }
 }
 
 data "aws_iam_instance_profiles" "profile" {

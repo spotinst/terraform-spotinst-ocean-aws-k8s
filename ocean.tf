@@ -171,14 +171,14 @@ resource "spotinst_ocean_aws" "ocean" {
     content {
       device_name = block_device_mappings.value.device_name
       ebs {
-        delete_on_termination = block_device_mappings.value.delete_on_termination
-        encrypted             = block_device_mappings.value.encrypted
-        iops                  = block_device_mappings.value.iops
-        kms_key_id            = block_device_mappings.value.kms_key_id
-        snapshot_id           = block_device_mappings.value.snapshot_id
-        volume_type           = block_device_mappings.value.volume_type
-        volume_size           = block_device_mappings.value.volume_size
-        throughput            = block_device_mappings.value.throughput
+        delete_on_termination = try(block_device_mappings.value.delete_on_termination,null)
+        encrypted             = try(block_device_mappings.value.encrypted,null)
+        iops                  = try(block_device_mappings.value.iops,null)
+        kms_key_id            = try(block_device_mappings.value.kms_key_id,null)
+        snapshot_id           = try(block_device_mappings.value.snapshot_id,null)
+        volume_type           = try(block_device_mappings.value.volume_type,null)
+        volume_size           = try(block_device_mappings.value.volume_size,null)
+        throughput            = try(block_device_mappings.value.throughput,null)
         dynamic "dynamic_volume_size" {
           for_each = var.dynamic_volume_size != null ? [var.dynamic_volume_size] : []
           content {
