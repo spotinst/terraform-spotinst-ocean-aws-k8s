@@ -6,7 +6,8 @@
 <a name="v0.6.0"></a>
 ## [v0.6.0] (January 2, 2024)
 
-  - Spotaut 17246 tf https spotinst.atlassian.net browse prod 7165 ([#23](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/23))
+  - changelog 0.6.0 ([#23](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/23))
+  - Added `conditioned_roll_params` new field for the custom list to perform cluster roll operation.
   
   
 <a name="v0.5.0"></a>
