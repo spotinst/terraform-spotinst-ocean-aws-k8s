@@ -3,9 +3,16 @@
 
   
   
-<a name="v0.4.0"></a>
-## [v0.4.0] (September 15, 2023)
+<a name="v0.5.0"></a>
+## [v0.5.0] (January 2, 2024)
 
+  - fixed the attributes of `block_device_mapping` object to accept null ([#21](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/21))
+  
+  
+<a name="v0.4.0"></a>
+## [v0.4.0] (September 18, 2023)
+
+  - Changelog 0.4.0 ([#19](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/19))
   - added `dynamic_iops` object support ([#18](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/18))
   
   
@@ -79,7 +86,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.6...v0.3.0
 [v0.2.6]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.5...v0.2.6
