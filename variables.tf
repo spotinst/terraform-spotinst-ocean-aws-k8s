@@ -303,7 +303,8 @@ variable "conditioned_roll" {
 variable "conditioned_roll_params" {
   type        = list(string)
   default     = null
-  description = "Customized List of conditioned roll params, it is valid only when conditioned_roll set to true"}
+  description = "Customized List of conditioned roll params, it is valid only when conditioned_roll set to true"
+}
 ##########################
 
 variable "data_integration_id" {
