@@ -303,7 +303,8 @@ variable "conditioned_roll" {
 variable "conditioned_roll_params" {
   type        = list(string)
   default     = null
-  description = "Customized List of conditioned roll params, it is valid only when conditioned_roll set to true"}
+  description = "Customized List of conditioned roll params, it is valid only when conditioned_roll set to true"
+}
 ##########################
 
 variable "data_integration_id" {
@@ -321,19 +322,6 @@ variable "shutdown_hours" {
   default     = null
   description = "shutdown_hours object"
 }
-###################
-
-# task scheduling #
-variable "tasks" {
-  type = list(object({
-    is_enabled      = bool
-    cron_expression = string
-    task_type       = string
-  }))
-  default     = null
-  description = "task object"
-}
-##################
 
 ## Block Device Mappings ##
 variable "block_device_mappings" {
@@ -360,3 +348,10 @@ variable "dynamic_iops" {
   description = "dynamic_iops Object"
 }
 ##################
+
+## Tasks ##
+variable "tasks" {
+  description = "Tasks Object"
+  type        = list(any)
+  default     = []
+}

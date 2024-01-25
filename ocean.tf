@@ -146,25 +146,58 @@ resource "spotinst_ocean_aws" "ocean" {
     }
   }
 
-
-  # Scheduled Task ##
+  # Scheduled Task Cluster Roll##
   scheduled_task {
-    dynamic "shutdown_hours" {
-      for_each = var.shutdown_hours != null ? [var.shutdown_hours] : []
-      content {
-        is_enabled   = shutdown_hours.value.is_enabled
-        time_windows = shutdown_hours.value.time_windows
-      }
-    }
-    dynamic "tasks" {
-      for_each = var.tasks != null ? var.tasks : []
-      content {
-        is_enabled      = tasks.value.is_enabled
-        cron_expression = tasks.value.cron_expression
-        task_type       = tasks.value.task_type
-      }
-    }
+     dynamic "tasks" {
+        for_each = var.tasks
+          content{
+               cron_expression =tasks.value.cron_expression
+               is_enabled      = tasks.value.is_enabled
+               task_type       = tasks.value.task_type
+               parameters {
+                  parameters_cluster_roll {
+                      batch_min_healthy_percentage = try(tasks.value.batch_min_healthy_percentage,null)
+                      batch_size_percentage        = try(tasks.value.batch_size_percentage,null)
+                      comment                      = try(tasks.value.comment,null)
+                      respect_pdb                  = try(tasks.value.respect_pdb,null)
+                   }
+               }
+          }
+     }
   }
+
+    # Scheduled Task Ami Auto Update and shut down hours##
+  scheduled_task {
+     dynamic "shutdown_hours" {
+        for_each = var.shutdown_hours != null ? [var.shutdown_hours] : []
+        content {
+          is_enabled   = shutdown_hours.value.is_enabled
+          time_windows = shutdown_hours.value.time_windows
+        }
+      }
+     dynamic "tasks" {
+        for_each = var.tasks
+          content{
+             cron_expression = tasks.value.cron_expression
+             is_enabled      = tasks.value.is_enabled
+             task_type       = tasks.value.task_type
+             parameters {
+                ami_auto_update {
+                apply_roll    = try(tasks.value.apply_roll,null)
+                minor_version = try(tasks.value.minor_version,null)
+                patch         = try(tasks.value.patch,null)
+                ami_auto_update_cluster_roll {
+                    batch_min_healthy_percentage = try(tasks.value.batch_min_healthy_percentage,null)
+                    batch_size_percentage        = try(tasks.value.batch_size_percentage,null)
+                    comment                      = try(tasks.value.comment,null)
+                    respect_pdb                  = try(tasks.value.respect_pdb,null)
+                    }
+                }
+             }
+          }
+     }
+  }
+
   ## Block Device Mappings ##
   dynamic "block_device_mappings" {
     for_each = var.block_device_mappings
