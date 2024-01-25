@@ -322,6 +322,52 @@ variable "shutdown_hours" {
   default     = null
   description = "shutdown_hours object"
 }
+###################
+
+# task scheduling #
+variable "tasks" {
+  type = list(object({
+    is_enabled      = bool
+    cron_expression = string
+    task_type       = string
+  }))
+  default     = null
+  description = "task object"
+}
+## amiAutoUpdate object ##
+variable "ami_auto_update" {
+  type = object({
+    apply_roll    = optional(bool,false)
+    minor_version = optional(bool,false)
+    patch         = optional(bool,false)
+  })
+  default     = null
+  description = "amiAutoUpdate cluster roll object"
+}
+## amiAutoUpdate cluster roll ##
+variable "ami_auto_update_cluster_roll" {
+  type = object({
+    batch_min_healthy_percentage = optional(number,50)
+    batch_size_percentage = optional(number,null)
+    comment = optional(string,null)
+    respect_pdb = optional(bool,null)
+  })
+  default     = null
+  description = "amiAutoUpdate cluster roll object"
+}
+
+## parameter cluster roll ##
+variable "parameters_cluster_roll" {
+  type = object({
+    batch_min_healthy_percentage = optional(number,50)
+    batch_size_percentage = optional(number,null)
+    comment = optional(string,null)
+    respect_pdb = optional(bool,null)
+  })
+  default     = null
+  description = "parameters cluster roll object"
+}
+##################
 
 ## Block Device Mappings ##
 variable "block_device_mappings" {
@@ -348,10 +394,3 @@ variable "dynamic_iops" {
   description = "dynamic_iops Object"
 }
 ##################
-
-## Tasks ##
-variable "tasks" {
-  description = "Tasks Object"
-  type        = list(any)
-  default     = []
-}

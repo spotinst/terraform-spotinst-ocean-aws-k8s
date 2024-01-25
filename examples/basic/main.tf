@@ -18,16 +18,24 @@ module "ocean-aws-k8s" {
   tasks                          = [{
     is_enabled                   = false
     cron_expression              = "0 1 * * *"
-    task_type                    = "amiAutoUpdate"
-    apply_roll                   = false
-    batch_min_healthy_percentage = 10
-    batch_size_percentage        = 1
-    comment                      = "TEst Comment"
-    respect_pdb                  = false
+    task_type                    = "amiAutoUpdate"}]
+  ami_auto_update                = {
+    apply_roll                   = true
     minor_version = true
     patch         = false
-  }]
-
+    }
+  ami_auto_update_cluster_roll        = {
+     batch_min_healthy_percentage = 10
+     batch_size_percentage        = 1
+     comment                      = "TEst Comment"
+     respect_pdb                  = false
+     }
+  /*parameters_cluster_roll         = {
+     batch_min_healthy_percentage = 30
+     batch_size_percentage        = 1
+     comment                      = "TEst Comment"
+     respect_pdb                  = false
+     }*/
   # Additional Tags
   tags = {CreatedBy = "terraform"}
   # Block Device Mappings
