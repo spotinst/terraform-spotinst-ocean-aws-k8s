@@ -347,7 +347,7 @@ variable "ami_auto_update" {
 ## amiAutoUpdate cluster roll ##
 variable "ami_auto_update_cluster_roll" {
   type = object({
-    batch_min_healthy_percentage = optional(number,50)
+    batch_min_healthy_percentage = optional(number,null)
     batch_size_percentage = optional(number,null)
     comment = optional(string,null)
     respect_pdb = optional(bool,null)
@@ -359,7 +359,7 @@ variable "ami_auto_update_cluster_roll" {
 ## parameter cluster roll ##
 variable "parameters_cluster_roll" {
   type = object({
-    batch_min_healthy_percentage = optional(number,50)
+    batch_min_healthy_percentage = optional(number,null)
     batch_size_percentage = optional(number,null)
     comment = optional(string,null)
     respect_pdb = optional(bool,null)
