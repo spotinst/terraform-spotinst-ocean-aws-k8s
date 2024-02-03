@@ -155,20 +155,20 @@ resource "spotinst_ocean_aws" "ocean" {
         }
       }
      dynamic "tasks" {
-        for_each = var.tasks
+        for_each = var.tasks != null ? var.tasks : []
           content {
              cron_expression = tasks.value.cron_expression
              is_enabled      = tasks.value.is_enabled
              task_type       = tasks.value.task_type
              parameters {
                 dynamic "ami_auto_update" {
-                   for_each = var.ami_auto_update != null ? [var.ami_auto_update] : []
+                   for_each = tasks.value.ami_auto_update
                    content {
                     apply_roll    = ami_auto_update.value.apply_roll
                     minor_version = ami_auto_update.value.minor_version
                     patch         = ami_auto_update.value.patch
                     dynamic "ami_auto_update_cluster_roll" {
-                        for_each = var.ami_auto_update_cluster_roll != null ? [var.ami_auto_update_cluster_roll] : []
+                        for_each = ami_auto_update.value.ami_auto_update_cluster_roll
                         content {
                             batch_min_healthy_percentage = ami_auto_update_cluster_roll.value.batch_min_healthy_percentage
                             batch_size_percentage        = ami_auto_update_cluster_roll.value.batch_size_percentage
@@ -176,21 +176,21 @@ resource "spotinst_ocean_aws" "ocean" {
                             respect_pdb                  = ami_auto_update_cluster_roll.value.respect_pdb
                         }
                     }
+                   }
+                }
+                dynamic "parameters_cluster_roll" {
+                    for_each = tasks.value.parameters_cluster_roll
+                    content {
+                      batch_min_healthy_percentage = parameters_cluster_roll.value.batch_min_healthy_percentage
+                      batch_size_percentage        = parameters_cluster_roll.value.batch_size_percentage
+                      comment                      = parameters_cluster_roll.value.comment
+                      respect_pdb                  = parameters_cluster_roll.value.respect_pdb
+                    }
                 }
              }
-             dynamic "parameters_cluster_roll" {
-                for_each = var.parameters_cluster_roll != null ? [var.parameters_cluster_roll] : []
-                content {
-                  batch_min_healthy_percentage = parameters_cluster_roll.value.batch_min_healthy_percentage
-                  batch_size_percentage        = parameters_cluster_roll.value.batch_size_percentage
-                  comment                      = parameters_cluster_roll.value.comment
-                  respect_pdb                  = parameters_cluster_roll.value.respect_pdb
-                }
-             }
-          }
 
-     }
-  }
+         }
+    }
 }
 
   ## Block Device Mappings ##
