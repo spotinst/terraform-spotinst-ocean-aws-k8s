@@ -11,39 +11,6 @@ module "ocean-aws-k8s" {
   worker_instance_profile_arn    = "arn:aws:iam::123456789:instance-profile/name"
   security_groups                = ["sg-123456789","sg-123456789"]
   ami_id                         = "ami-12345678"
-  shutdown_hours                 = {
-  is_enabled                     = false
-  time_windows                   = ["Sat:08:00-Sun:08:00"]
-  }
-  tasks                          = [
-    {
-      is_enabled                   = false
-      cron_expression              = "0 9 * * *"
-      task_type                    = "amiAutoUpdate"
-       ami_auto_update                = [{
-          apply_roll                   = false
-          minor_version = false
-          patch         = true
-          ami_auto_update_cluster_roll        = [{
-             batch_min_healthy_percentage = 50
-             batch_size_percentage        = 20
-             comment                      = "Comments for AmiAutUpdate Cluster Roll"
-             respect_pdb                  = true
-          }]
-       }]
-    },
-   {
-       is_enabled                   = false
-       cron_expression              = "0 5 * * *"
-       task_type                    = "clusterRoll"
-       parameters_cluster_roll         = [{
-          batch_min_healthy_percentage = 50
-          batch_size_percentage        = 20
-          comment                      = "Comments for Parameters Cluster Roll"
-          respect_pdb                  = false
-       }]
-    }
-  ]
 
   # Additional Tags
   tags = {CreatedBy = "terraform"}
