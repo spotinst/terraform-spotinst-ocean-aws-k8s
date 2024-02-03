@@ -3,11 +3,18 @@
 
   
   
+<a name="v0.7.0"></a>
+## [v0.7.0] (February 3, 2024)
+
+  - Module changes for auto ami update ([#26](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/26))
+  - Update variables.tf ([#25](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/25))
+  
+  
 <a name="v0.6.0"></a>
 ## [v0.6.0] (January 2, 2024)
 
-  - changelog 0.6.0 ([#23](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/23))
-  - Added `conditioned_roll_params` new field for the custom list to perform cluster roll operation.
+  - changelog v0.6.0 ([#24](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/24))
+  - Spotaut 17246 tf https spotinst.atlassian.net browse prod 7165 ([#23](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/23))
   
   
 <a name="v0.5.0"></a>
@@ -94,7 +101,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.7.0...HEAD
+[v0.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.3.0...v0.4.0
