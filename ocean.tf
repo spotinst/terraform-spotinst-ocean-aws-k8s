@@ -145,26 +145,54 @@ resource "spotinst_ocean_aws" "ocean" {
       respect_pdb                  = var.respect_pdb
     }
   }
-
-
-  # Scheduled Task ##
+    # Scheduled Task Ami Auto Update and shut down hours##
   scheduled_task {
-    dynamic "shutdown_hours" {
-      for_each = var.shutdown_hours != null ? [var.shutdown_hours] : []
-      content {
-        is_enabled   = shutdown_hours.value.is_enabled
-        time_windows = shutdown_hours.value.time_windows
+     dynamic "shutdown_hours" {
+        for_each = var.shutdown_hours != null ? [var.shutdown_hours] : []
+        content {
+          is_enabled   = shutdown_hours.value.is_enabled
+          time_windows = shutdown_hours.value.time_windows
+        }
       }
+     dynamic "tasks" {
+        for_each = var.tasks != null ? var.tasks : []
+          content {
+             cron_expression = tasks.value.cron_expression
+             is_enabled      = tasks.value.is_enabled
+             task_type       = tasks.value.task_type
+             parameters {
+                dynamic "ami_auto_update" {
+                   for_each = tasks.value.ami_auto_update
+                   content {
+                    apply_roll    = ami_auto_update.value.apply_roll
+                    minor_version = ami_auto_update.value.minor_version
+                    patch         = ami_auto_update.value.patch
+                    dynamic "ami_auto_update_cluster_roll" {
+                        for_each = ami_auto_update.value.ami_auto_update_cluster_roll
+                        content {
+                            batch_min_healthy_percentage = ami_auto_update_cluster_roll.value.batch_min_healthy_percentage
+                            batch_size_percentage        = ami_auto_update_cluster_roll.value.batch_size_percentage
+                            comment                      = ami_auto_update_cluster_roll.value.comment
+                            respect_pdb                  = ami_auto_update_cluster_roll.value.respect_pdb
+                        }
+                    }
+                   }
+                }
+                dynamic "parameters_cluster_roll" {
+                    for_each = tasks.value.parameters_cluster_roll
+                    content {
+                      batch_min_healthy_percentage = parameters_cluster_roll.value.batch_min_healthy_percentage
+                      batch_size_percentage        = parameters_cluster_roll.value.batch_size_percentage
+                      comment                      = parameters_cluster_roll.value.comment
+                      respect_pdb                  = parameters_cluster_roll.value.respect_pdb
+                    }
+                }
+             }
+
+         }
     }
-    dynamic "tasks" {
-      for_each = var.tasks != null ? var.tasks : []
-      content {
-        is_enabled      = tasks.value.is_enabled
-        cron_expression = tasks.value.cron_expression
-        task_type       = tasks.value.task_type
-      }
-    }
-  }
+}
+
   ## Block Device Mappings ##
   dynamic "block_device_mappings" {
     for_each = var.block_device_mappings
@@ -198,7 +226,6 @@ resource "spotinst_ocean_aws" "ocean" {
       }
     }
   }
-
 
   # Prevent Capacity from changing during updates
   lifecycle {
