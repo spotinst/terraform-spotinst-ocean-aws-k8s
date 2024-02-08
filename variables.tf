@@ -355,26 +355,28 @@ variable "tasks" {
 
 ## Block Device Mappings ##
 variable "block_device_mappings" {
-  description = "Block Device Mapping Object"
-  type        = list(any)
+  type        = list(object({
+      device_name = optional(string,null)
+      delete_on_termination = optional(bool,null)
+      encrypted = optional(bool,null)
+      iops = optional(number,null)
+      kms_key_id = optional(string,null)
+      snapshot_id = optional(string,null)
+      throughput = optional(number,null)
+      volume_size = optional(number,null)
+      volume_type = optional(string,null)
+      dynamic_iops = optional(set(object({
+          base_size = optional(number,null)
+          resource = optional(string,null)
+          size_per_resource_unit = optional(number,null)
+      })), [])
+      dynamic_volume_size = optional(set(object({
+          base_size = optional(number,null)
+          resource = optional(string,null)
+          size_per_resource_unit = optional(number,null)
+      })), [])
+  }))
   default     = []
-}
-variable "dynamic_volume_size" {
-  type = object({
-    base_size              = number
-    resource               = string
-    size_per_resource_unit = number
-  })
-  default     = null
-  description = "dynamic_volume_size Object"
-}
-variable "dynamic_iops" {
-  type = object({
-    base_size              = number
-    resource               = string
-    size_per_resource_unit = number
-  })
-  default     = null
-  description = "dynamic_iops Object"
+  description = "Block Device Mapping Object"
 }
 ##################
