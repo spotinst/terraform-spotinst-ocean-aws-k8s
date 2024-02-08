@@ -65,7 +65,7 @@ module "ocean-aws-k8s" {
   subnet_ids = ["subnet-12345678","subnet-12345678"]
   #Fetch the instance profile from existing eks managed node group IAM role
   worker_instance_profile_arn = tolist(data.aws_iam_instance_profiles.profile.arns)[0]
-  security_group = ["sg-123456789","sg-123456789"]
+  security_groups = ["sg-123456789","sg-123456789"]
   
   # Shutdown hours block
   shutdown_hours = {
