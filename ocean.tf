@@ -233,6 +233,10 @@ resource "spotinst_ocean_aws" "ocean" {
       desired_capacity
     ]
   }
+
+  resource_tag_specification {
+    should_tag_volumes = var.should_tag_volumes
+  }
 }
 
 
