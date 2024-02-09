@@ -384,6 +384,6 @@ variable "block_device_mappings" {
 #ResourceTagSpecification#
 variable "should_tag_volumes" {
   type        = bool
-  default     = false
+  default     = null
   description = "Specify if volume resources will be tagged with virtual node group tags or ocean tags"
 }
