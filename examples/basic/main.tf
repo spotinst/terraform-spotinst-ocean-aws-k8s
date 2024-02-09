@@ -16,33 +16,37 @@ module "ocean-aws-k8s" {
   # Additional Tags
   tags = {CreatedBy = "terraform"}
   # Block Device Mappings
-  block_device_mappings       = [{
+  block_device_mappings       = [
+    {
     device_name               = "/dev/xvda"
     delete_on_termination     = true
     encrypted                 = false
     kms_key_id                = "alias/aws/ebs"
     snapshot_id               = null
-    iops                      = 1
     volume_type               = "gp3"
     volume_size               = null
-    throughput                = 125 }]
-  dynamic_volume_size         = {
-    base_size                 = 50
-    resource                  = "CPU"
-    size_per_resource_unit    = 20 }
-  dynamic_iops                = {
-    base_size                 = 30
-    resource                  = "CPU"
-    size_per_resource_unit    = 10 }
-  block_device_mappings       = [{
-    device_name               = "/dev/xvda"
-    encrypted                 = true
-    volume_type               = "gp3"
+    throughput                = 125
+    dynamic_volume_size         = [{
+        base_size                 = 30
+        resource                  = "CPU"
+        size_per_resource_unit    = 25
+    }]
+    dynamic_iops                = [{
+        base_size                 = 20
+        resource                  = "CPU"
+        size_per_resource_unit    = 12
+    }]
+  },
+  {
+     device_name               = "/dev/xvda"
+     encrypted                 = true
+     iops                      = 100
+     volume_type               = "gp3"
+     dynamic_volume_size         = [{
+        base_size                 = 50
+        resource                  = "CPU"
+        size_per_resource_unit    = 20
+     }]
   }
   ]
-  dynamic_volume_size         = {
-    base_size                 = 60
-    resource                  = "CPU"
-    size_per_resource_unit    = 30
-  }
 }

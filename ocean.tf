@@ -195,7 +195,7 @@ resource "spotinst_ocean_aws" "ocean" {
 
   ## Block Device Mappings ##
   dynamic "block_device_mappings" {
-    for_each = var.block_device_mappings
+    for_each = var.block_device_mappings != null ? var.block_device_mappings : []
     content {
       device_name = block_device_mappings.value.device_name
       ebs {
@@ -208,7 +208,7 @@ resource "spotinst_ocean_aws" "ocean" {
         volume_size           = try(block_device_mappings.value.volume_size,null)
         throughput            = try(block_device_mappings.value.throughput,null)
         dynamic "dynamic_volume_size" {
-          for_each = var.dynamic_volume_size != null ? [var.dynamic_volume_size] : []
+          for_each = block_device_mappings.value.dynamic_volume_size
           content {
             base_size              = dynamic_volume_size.value.base_size
             resource               = dynamic_volume_size.value.resource
@@ -216,7 +216,7 @@ resource "spotinst_ocean_aws" "ocean" {
           }
         }
         dynamic "dynamic_iops" {
-          for_each = var.dynamic_iops != null ? [var.dynamic_iops] : []
+          for_each = block_device_mappings.value.dynamic_iops
           content {
             base_size              = dynamic_iops.value.base_size
             resource               = dynamic_iops.value.resource
