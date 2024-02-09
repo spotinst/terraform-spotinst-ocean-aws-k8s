@@ -11,6 +11,7 @@ module "ocean-aws-k8s" {
   worker_instance_profile_arn    = "arn:aws:iam::123456789:instance-profile/name"
   security_groups                = ["sg-123456789","sg-123456789"]
   ami_id                         = "ami-12345678"
+  should_tag_volumes             = true
 
   # Additional Tags
   tags = {CreatedBy = "terraform"}

@@ -378,3 +378,10 @@ variable "dynamic_iops" {
   description = "dynamic_iops Object"
 }
 ##################
+
+#ResourceTagSpecification#
+variable "should_tag_volumes" {
+  type        = bool
+  default     = false
+  description = "Specify if volume resources will be tagged with virtual node group tags or ocean tags"
+}
