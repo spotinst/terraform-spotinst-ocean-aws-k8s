@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.1.0"></a>
+## [v1.1.0] (February 9, 2024)
+
+  - feat(ocean/aws): added `should_tag_volumes` attribute in `resource_tag_specification`([#34](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/34))
+  
+  
 <a name="v1.0.0"></a>
 ## [v1.0.0] (February 8, 2024)
 
+  - Changelog v1.0.0 ([#33](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/33))
   - Fix (ocean/aws) - Changed structure of BDM object ([#32](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/32))
   - change owner request ([#29](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/29))
   
@@ -109,7 +116,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.1.0...HEAD
+[v1.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.0.0...v1.1.0
 [v1.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.7.0...v1.0.0
 [v0.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.5.0...v0.6.0
