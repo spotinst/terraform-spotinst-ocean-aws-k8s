@@ -86,6 +86,7 @@ variable "key_name" {
 }
 variable "worker_instance_profile_arn" {
   type        = string
+  default     = null
   description = "The instance profile iam role."
 }
 variable "associate_public_ip_address" {
