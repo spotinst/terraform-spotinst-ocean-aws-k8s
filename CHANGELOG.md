@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.2.0"></a>
+## [v1.2.0] (February 15, 2024)
+
+  - added `is_aggressive_scale_down_enabled` attribute in auto_scaler ([#38](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/38))
+  
+  
 <a name="v1.1.1"></a>
 ## [v1.1.1] (February 12, 2024)
 
+  - changelog_1.1.1 ([#37](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/37))
   - fix(ocean/aws): fix null value for `worker_instance_profile_arn` attribute ([#36](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/36))
   
   
@@ -123,7 +130,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.2.0...HEAD
+[v1.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.1.1...v1.2.0
 [v1.1.1]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.1.0...v1.1.1
 [v1.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.0.0...v1.1.0
 [v1.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.7.0...v1.0.0
