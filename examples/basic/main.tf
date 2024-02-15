@@ -12,7 +12,7 @@ module "ocean-aws-k8s" {
   security_groups                = ["sg-123456789","sg-123456789"]
   ami_id                         = "ami-12345678"
   should_tag_volumes             = true
-
+  is_aggressive_scale_down_enabled = false
   # Additional Tags
   tags = {CreatedBy = "terraform"}
   # Block Device Mappings

@@ -125,6 +125,7 @@ resource "spotinst_ocean_aws" "ocean" {
     }
     autoscale_down {
       max_scale_down_percentage = var.max_scale_down_percentage
+      is_aggressive_scale_down_enabled = var.is_aggressive_scale_down_enabled
     }
     resource_limits {
       max_vcpu       = var.max_vcpu
