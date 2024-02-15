@@ -262,6 +262,13 @@ variable "max_memory_gib" {
   default     = 100000
   description = "The maximum memory in GiB units that can be allocated to the cluster."
 }
+
+## aggressive_scale_down
+variable "is_aggressive_scale_down_enabled" {
+  type = bool
+  default = null
+  description = "When set to 'true', the Aggressive Scale Down feature is enabled"
+  }
 ##########################
 
 ## Update Policy - update_policy ##
