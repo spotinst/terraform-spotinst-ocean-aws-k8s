@@ -3,16 +3,17 @@ module "ocean-aws-k8s" {
   source  = "spotinst/ocean-aws-k8s/spotinst"
 
   # Configuration
-  cluster_name                   = "EKS Cluster Name"
-  controller_id                  = "EKS-controller-id"
-  region                         = "us-west-2"
-  subnet_ids                     = ["subnet-12345678","subnet-12345678"]
-  min_size                       = 0
-  worker_instance_profile_arn    = "arn:aws:iam::123456789:instance-profile/name"
-  security_groups                = ["sg-123456789","sg-123456789"]
-  ami_id                         = "ami-12345678"
-  should_tag_volumes             = true
-  is_aggressive_scale_down_enabled = false
+  cluster_name                                       = "EKS Cluster Name"
+  controller_id                                      = "EKS-controller-id"
+  region                                             = "us-west-2"
+  subnet_ids                                         = ["subnet-12345678","subnet-12345678"]
+  min_size                                           = 0
+  worker_instance_profile_arn                        = "arn:aws:iam::123456789:instance-profile/name"
+  security_groups                                    = ["sg-123456789","sg-123456789"]
+  ami_id                                             = "ami-12345678"
+  should_tag_volumes                                 = true
+  is_aggressive_scale_down_enabled                   = false
+  health_check_unhealthy_duration_before_replacement = 60
   # Additional Tags
   tags = {CreatedBy = "terraform"}
   # Block Device Mappings

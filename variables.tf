@@ -75,6 +75,11 @@ variable "ami_id" {
   default     = null
   description = "The image ID for the EKS worker nodes. If none is provided, Terraform will search for the latest version of their EKS optimized worker AMI based on platform"
 }
+variable "health_check_unhealthy_duration_before_replacement" {
+  type        = number
+  default     = 120
+  description = "The amount of time, in seconds, an existing instance should remain active after becoming unhealthy. After the set time out the instance will be replaced. The minimum value allowed is 60, and it must be a multiple of 60."
+}
 variable "security_groups" {
   type        = list(string)
   description = "One or more security group ids."
