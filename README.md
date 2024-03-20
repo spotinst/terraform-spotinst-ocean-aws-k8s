@@ -179,10 +179,10 @@ Please see the [contribution guidelines](CONTRIBUTING.md).
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.70 |
+| Name | Version  |
+|------|----------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.3 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.70  |
 | <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | >= 1.139 |
 
 ## Providers
