@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.4.0"></a>
+## [v1.4.0] (May 8, 2024)
+
+  - added support for `attach_load_balancer` and `detach_load_balancer` in ocean aws cluster ([#42](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/42))
+  
+  
 <a name="v1.3.0"></a>
 ## [v1.3.0] (March 20, 2024)
 
+  - Changelog 1.3.0 ([#41](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/41))
   - Added support for `health_check_unhealthy_duration_before_replacement` under launchSpecification. ([#40](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/40))
   
   
@@ -137,7 +144,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.4.0...HEAD
+[v1.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.3.0...v1.4.0
 [v1.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.1.1...v1.2.0
 [v1.1.1]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.1.0...v1.1.1
