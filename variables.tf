@@ -400,3 +400,26 @@ variable "should_tag_volumes" {
   default     = null
   description = "Specify if volume resources will be tagged with virtual node group tags or ocean tags"
 }
+##################
+
+#Attach load balancers
+variable "attach_load_balancer" {
+  type = list(object({
+    arn  = optional(string,null)
+    name = optional(string,null)
+    type = string
+  }))
+  default     = null
+  description = "attaching load_balancer object"
+}
+
+#Detach load balancers
+variable "detach_load_balancer" {
+  type = list(object({
+    arn  = optional(string,null)
+    name = optional(string,null)
+    type = string
+  }))
+  default     = null
+  description = "detaching load_balancer object"
+}

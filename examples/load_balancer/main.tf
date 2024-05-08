@@ -25,4 +25,26 @@ module "ocean-aws-k8s" {
   auto_apply_tags       = true
   batch_size_percentage = 20
   respect_pdb           = false
+
+  attach_load_balancer = [
+        {
+           name = "LoadBalancerName"
+           type = "CLASSIC"
+        },
+        {
+           arn  = "TargetGroupArn"
+           type = "TARGET_GROUP"
+        }
+      ]
+
+  detach_load_balancer = [
+        {
+            name = "LoadBalancerName"
+            type = "CLASSIC"
+        },
+        {
+            arn = "TargetGroupArn"
+            type = "TARGET_GROUP"
+        }
+      ]
 }
