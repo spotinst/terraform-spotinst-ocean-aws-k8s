@@ -239,6 +239,26 @@ resource "spotinst_ocean_aws" "ocean" {
   resource_tag_specification {
     should_tag_volumes = var.should_tag_volumes
   }
+
+  # attach load balancer
+  dynamic "attach_load_balancer" {
+      for_each = var.attach_load_balancer != null ? var.attach_load_balancer : []
+      content {
+        arn  = attach_load_balancer.value.arn
+        name = attach_load_balancer.value.name
+        type = attach_load_balancer.value.type
+      }
+  }
+
+  # detach load balancer
+    dynamic "detach_load_balancer" {
+        for_each = var.detach_load_balancer != null ? var.detach_load_balancer : []
+        content {
+          arn  = detach_load_balancer.value.arn
+          name = detach_load_balancer.value.name
+          type = detach_load_balancer.value.type
+        }
+      }
 }
 
 
