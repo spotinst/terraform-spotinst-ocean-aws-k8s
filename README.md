@@ -4,7 +4,7 @@ Spotinst Terraform Module to integrate existing k8s with Ocean
 
 ## Prerequisites
 
-Installation of the Ocean controller is required by this resource. You can accomplish this by using the [spotinst/ocean-controller](https://registry.terraform.io/modules/spotinst/ocean-controller/spotinst) module. The kubernetes provider will need to be initilaized before calling the ocean-controller module as follows:
+Installation of the Ocean controller is required by this resource. You can accomplish this by using the [spotinst/terraform-ocean-kubernetes-controller ](https://registry.terraform.io/modules/spotinst/kubernetes-controller/ocean) module. The kubernetes provider will need to be initialized before calling the kubernetes-controller module as follows:
 
 ```hcl
 terraform {
@@ -39,8 +39,8 @@ provider "kubernetes" {
 }
 ##################
 
-module "ocean-controller" {
-  source = "spotinst/ocean-controller/spotinst"
+module "kubernetes-controller" {
+  source = "spotinst/kubernetes-controller/ocean"
 
   # Credentials.
   spotinst_token   = "redacted"
@@ -153,7 +153,7 @@ data "aws_iam_instance_profiles" "profile" {
 
 ## Modules
 * `ocean-aws-k8s` - Creates Ocean Cluster
-* `ocean-controller` - Create and installs Spot Ocean controller pod [Doc](https://registry.terraform.io/modules/spotinst/ocean-controller/spotinst/latest)
+* `ocean-controller` - Create and installs Spot Ocean controller pod [Doc](https://registry.terraform.io/modules/spotinst/kubernetes-controller/ocean)
 * `ocean-aws-k8s-vng` - (Optional) Add custom virtual node groups [Doc](https://registry.terraform.io/modules/spotinst/ocean-aws-k8s-vng/spotinst/latest)
 
 ## Documentation
