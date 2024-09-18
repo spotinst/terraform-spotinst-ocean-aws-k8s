@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.5.0"></a>
+## [v1.5.0] (September 18, 2024)
+
+  - updated controller v2 reference ([#46](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/46))
+  
+  
 <a name="v1.4.0"></a>
 ## [v1.4.0] (May 8, 2024)
 
+  - changelog update ([#43](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/43))
   - added support for `attach_load_balancer` and `detach_load_balancer` in ocean aws cluster ([#42](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/42))
   
   
@@ -43,26 +50,11 @@
   - Changelog v1.0.0 ([#33](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/33))
   - Fix (ocean/aws) - Changed structure of BDM object ([#32](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/32))
   - change owner request ([#29](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/29))
-  
-  
-<a name="v0.7.0"></a>
-## [v0.7.0] (February 3, 2024)
-
   - Changelog update ([#28](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/28))
   - Module changes for auto ami update ([#26](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/26))
   - Update variables.tf ([#25](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/25))
-  
-  
-<a name="v0.6.0"></a>
-## [v0.6.0] (January 2, 2024)
-
   - changelog v0.6.0 ([#24](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/24))
   - Spotaut 17246 tf https spotinst.atlassian.net browse prod 7165 ([#23](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/23))
-  
-  
-<a name="v0.5.0"></a>
-## [v0.5.0] (January 2, 2024)
-
   - changelog 0.5.0 ([#22](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/22))
   - fixed the attributes of `block_device_mapping` object to accept null ([#21](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/21))
   
@@ -144,16 +136,14 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.5.0...HEAD
+[v1.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.4.0...v1.5.0
 [v1.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.3.0...v1.4.0
 [v1.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.1.1...v1.2.0
 [v1.1.1]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.1.0...v1.1.1
 [v1.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.0.0...v1.1.0
-[v1.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.7.0...v1.0.0
-[v0.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.6.0...v0.7.0
-[v0.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.5.0...v0.6.0
-[v0.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.4.0...v0.5.0
+[v1.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.4.0...v1.0.0
 [v0.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.6...v0.3.0
 [v0.2.6]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v0.2.5...v0.2.6
