@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.6.0"></a>
+## [v1.6.0] (November 21, 2024)
+
+  - added `reserved_enis` to support max pods configuration ([#49](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/49))
+  
+  
 <a name="v1.5.0"></a>
 ## [v1.5.0] (September 18, 2024)
 
+  - Changelog 1.5.0 ([#47](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/47))
   - updated controller v2 reference ([#46](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/46))
   
   
@@ -136,7 +143,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.5.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.6.0...HEAD
+[v1.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.5.0...v1.6.0
 [v1.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.4.0...v1.5.0
 [v1.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.3.0...v1.4.0
 [v1.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.2.0...v1.3.0
