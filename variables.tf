@@ -80,6 +80,11 @@ variable "health_check_unhealthy_duration_before_replacement" {
   default     = 120
   description = "The amount of time, in seconds, an existing instance should remain active after becoming unhealthy. After the set time out the instance will be replaced. The minimum value allowed is 60, and it must be a multiple of 60."
 }
+variable "reserved_enis" {
+  type        = number
+  default     = 0
+  description = "Specifies the count of ENIs to reserve per instance type for scaling purposes."
+}
 variable "security_groups" {
   type        = list(string)
   description = "One or more security group ids."
