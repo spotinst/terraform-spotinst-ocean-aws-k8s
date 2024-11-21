@@ -82,7 +82,7 @@ variable "health_check_unhealthy_duration_before_replacement" {
 }
 variable "reserved_enis" {
   type        = number
-  default     = null
+  default     = 0
   description = "Specifies the count of ENIs to reserve per instance type for scaling purposes."
 }
 variable "security_groups" {
