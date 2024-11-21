@@ -51,6 +51,7 @@ resource "spotinst_ocean_aws" "ocean" {
   ebs_optimized                                      = var.ebs_optimized
   use_as_template_only                               = var.use_as_template_only
   health_check_unhealthy_duration_before_replacement = var.health_check_unhealthy_duration_before_replacement
+  reserved_enis                                      = var.reserved_enis
 
   dynamic "load_balancers" {
     for_each = var.load_balancer != null ? var.load_balancer : []
