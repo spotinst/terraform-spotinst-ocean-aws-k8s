@@ -14,6 +14,7 @@ module "ocean-aws-k8s" {
   should_tag_volumes                                 = true
   is_aggressive_scale_down_enabled                   = false
   health_check_unhealthy_duration_before_replacement = 60
+  instance_store_policy_type                         = "RAID0"
   # Additional Tags
   tags = {CreatedBy = "terraform"}
   # Block Device Mappings
