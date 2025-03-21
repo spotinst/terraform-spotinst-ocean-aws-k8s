@@ -260,6 +260,10 @@ resource "spotinst_ocean_aws" "ocean" {
           type = detach_load_balancer.value.type
         }
       }
+
+    instance_store_policy {
+      instance_store_policy_type = var.instance_store_policy_type
+    }
 }
 
 

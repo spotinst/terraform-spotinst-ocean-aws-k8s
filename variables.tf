@@ -428,3 +428,10 @@ variable "detach_load_balancer" {
   default     = null
   description = "detaching load_balancer object"
 }
+
+#instance_store_policy object
+variable "instance_store_policy_type" {
+  type        = string
+  default     = null
+  description = "Determines the utilization of instance store volumes. If not defined, instance store volumes will not be used. The method for using the instance store volumes (must also be defined in the userData)"
+}
