@@ -338,36 +338,35 @@ variable "shutdown_hours" {
     time_windows = list(string)
   })
   default     = null
-  description = "shutdown_hours object"
+  description = "Defines shutdown hours for the cluster."
 }
-###################
 
 # task scheduling #
 variable "tasks" {
   type = list(object({
-    is_enabled      = bool
-    cron_expression = string
-    task_type       = string
+    is_enabled      = optional(bool,null)
+    cron_expression = optional(string,null)
+    task_type       = optional(string,null)
     ami_auto_update = optional(set(object({
         apply_roll    = optional(bool,null)
         minor_version = optional(bool,null)
         patch         = optional(bool,null)
             ami_auto_update_cluster_roll = optional(set(object({
-                batch_min_healthy_percentage = optional(number,null)
-                batch_size_percentage = optional(number,null)
-                comment = optional(string,null)
-                respect_pdb = optional(bool,null)
+            batch_min_healthy_percentage = optional(number,null)
+            batch_size_percentage        = optional(number,null)
+            comment                      = optional(string,null)
+            respect_pdb                  = optional(bool,null)
             })), [])
     })), [])
     parameters_cluster_roll = optional(set(object({
         batch_min_healthy_percentage = optional(number,null)
-        batch_size_percentage = optional(number,null)
-        comment = optional(string,null)
-        respect_pdb = optional(bool,null)
+        batch_size_percentage        = optional(number,null)
+        comment                      = optional(string,null)
+        respect_pdb                  = optional(bool,null)
     })), [])
   }))
   default     = null
-  description = "task object"
+  description = "Defines scheduled tasks for the cluster."
 }
 ##################
 
