@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.8.0"></a>
+## [v1.8.0] (May 6, 2025)
+
+  - fixed `scheduled_task` object diff displaying in terraform plan ([#53](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/53))
+  
+  
 <a name="v1.7.0"></a>
 ## [v1.7.0] (March 21, 2025)
 
+  - Changelog v1.7.0 ([#52](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/52))
   - Added `instance_store_policy` object to support Ephemeral storage ([#51](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/51))
   
   
@@ -150,7 +157,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.7.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.8.0...HEAD
+[v1.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.7.0...v1.8.0
 [v1.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.6.0...v1.7.0
 [v1.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.5.0...v1.6.0
 [v1.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.4.0...v1.5.0
