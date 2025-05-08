@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.9.0"></a>
+## [v1.9.0] (May 8, 2025)
+
+  - added support for `startup_taints` ([#55](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/55))
+  
+  
 <a name="v1.8.0"></a>
 ## [v1.8.0] (May 6, 2025)
 
+  - Changelog v1.8.0 ([#54](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/54))
   - fixed `scheduled_task` object diff displaying in terraform plan ([#53](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/53))
   
   
@@ -157,7 +164,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.8.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.0...HEAD
+[v1.9.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.8.0...v1.9.0
 [v1.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.7.0...v1.8.0
 [v1.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.6.0...v1.7.0
 [v1.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.5.0...v1.6.0
