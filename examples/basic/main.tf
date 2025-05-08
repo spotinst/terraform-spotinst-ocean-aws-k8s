@@ -51,4 +51,17 @@ module "ocean-aws-k8s" {
      }]
   }
   ]
+
+ startup_taints = [
+  {
+  key    = "example-key1"
+  value  = "example-value1"
+  effect = "NoExecute"
+ },
+  {
+   key    = "example-key2"
+  value  = "example-value2"
+  effect = "NoSchedule"
+  }
+ ]
 }
