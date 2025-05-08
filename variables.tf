@@ -434,3 +434,13 @@ variable "instance_store_policy_type" {
   default     = null
   description = "Determines the utilization of instance store volumes. If not defined, instance store volumes will not be used. The method for using the instance store volumes (must also be defined in the userData)"
 }
+
+variable "startup_taints" {
+  type = list(object({
+    key    = string
+    value  = string
+    effect = string
+  }))
+  default     = null
+  description = "Temporary taints applied to a node during its initialization phase. For a startup taint to work, it must also be set as a regular taint in the userData for the cluster."
+}
