@@ -126,7 +126,7 @@ resource "spotinst_ocean_aws" "ocean" {
       num_of_units    = var.num_of_unit
     }
     autoscale_down {
-      max_scale_down_percentage = var.max_scale_down_percentage
+      max_scale_down_percentage        = var.max_scale_down_percentage
       is_aggressive_scale_down_enabled = var.is_aggressive_scale_down_enabled
     }
     resource_limits {
@@ -205,14 +205,14 @@ resource "spotinst_ocean_aws" "ocean" {
     content {
       device_name = block_device_mappings.value.device_name
       ebs {
-        delete_on_termination = try(block_device_mappings.value.delete_on_termination,null)
-        encrypted             = try(block_device_mappings.value.encrypted,null)
-        iops                  = try(block_device_mappings.value.iops,null)
-        kms_key_id            = try(block_device_mappings.value.kms_key_id,null)
-        snapshot_id           = try(block_device_mappings.value.snapshot_id,null)
-        volume_type           = try(block_device_mappings.value.volume_type,null)
-        volume_size           = try(block_device_mappings.value.volume_size,null)
-        throughput            = try(block_device_mappings.value.throughput,null)
+        delete_on_termination = try(block_device_mappings.value.delete_on_termination, null)
+        encrypted             = try(block_device_mappings.value.encrypted, null)
+        iops                  = try(block_device_mappings.value.iops, null)
+        kms_key_id            = try(block_device_mappings.value.kms_key_id, null)
+        snapshot_id           = try(block_device_mappings.value.snapshot_id, null)
+        volume_type           = try(block_device_mappings.value.volume_type, null)
+        volume_size           = try(block_device_mappings.value.volume_size, null)
+        throughput            = try(block_device_mappings.value.throughput, null)
         dynamic "dynamic_volume_size" {
           for_each = block_device_mappings.value.dynamic_volume_size
           content {
@@ -246,12 +246,12 @@ resource "spotinst_ocean_aws" "ocean" {
 
   # attach load balancer
   dynamic "attach_load_balancer" {
-      for_each = var.attach_load_balancer != null ? var.attach_load_balancer : []
-      content {
-        arn  = attach_load_balancer.value.arn
-        name = attach_load_balancer.value.name
-        type = attach_load_balancer.value.type
-      }
+    for_each = var.attach_load_balancer != null ? var.attach_load_balancer : []
+    content {
+      arn  = attach_load_balancer.value.arn
+      name = attach_load_balancer.value.name
+      type = attach_load_balancer.value.type
+    }
   }
 
   # detach load balancer

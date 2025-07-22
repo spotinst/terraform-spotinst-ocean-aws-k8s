@@ -237,22 +237,22 @@ variable "extended_resource_definitions" {
 ## autoscale_headroom ##
 variable "cpu_per_unit" {
   type        = number
-  default     = null
+  default     = 0
   description = "Optionally configure the number of CPUs to allocate the headroom. CPUs are denoted in millicores, where 1000 millicores = 1 vCPU."
 }
 variable "gpu_per_unit" {
   type        = number
-  default     = null
+  default     = 0
   description = "Optionally configure the number of GPUs to allocate the headroom."
 }
 variable "memory_per_unit" {
   type        = number
-  default     = null
+  default     = 0
   description = "Optionally configure the amount of memory (MB) to allocate the headroom."
 }
 variable "num_of_unit" {
   type        = number
-  default     = null
+  default     = 0
   description = "The number of units to retain as headroom, where each unit has the defined headroom CPU and memory."
 }
 ## autoscale_down ##
@@ -275,10 +275,10 @@ variable "max_memory_gib" {
 
 ## aggressive_scale_down
 variable "is_aggressive_scale_down_enabled" {
-  type = bool
-  default = null
+  type        = bool
+  default     = null
   description = "When set to 'true', the Aggressive Scale Down feature is enabled"
-  }
+}
 ##########################
 
 ## Update Policy - update_policy ##
@@ -344,25 +344,25 @@ variable "shutdown_hours" {
 # task scheduling #
 variable "tasks" {
   type = list(object({
-    is_enabled      = optional(bool,null)
-    cron_expression = optional(string,null)
-    task_type       = optional(string,null)
+    is_enabled      = optional(bool, null)
+    cron_expression = optional(string, null)
+    task_type       = optional(string, null)
     ami_auto_update = optional(set(object({
-        apply_roll    = optional(bool,null)
-        minor_version = optional(bool,null)
-        patch         = optional(bool,null)
-            ami_auto_update_cluster_roll = optional(set(object({
-            batch_min_healthy_percentage = optional(number,null)
-            batch_size_percentage        = optional(number,null)
-            comment                      = optional(string,null)
-            respect_pdb                  = optional(bool,null)
-            })), [])
+      apply_roll    = optional(bool, null)
+      minor_version = optional(bool, null)
+      patch         = optional(bool, null)
+      ami_auto_update_cluster_roll = optional(set(object({
+        batch_min_healthy_percentage = optional(number, null)
+        batch_size_percentage        = optional(number, null)
+        comment                      = optional(string, null)
+        respect_pdb                  = optional(bool, null)
+      })), [])
     })), [])
     parameters_cluster_roll = optional(set(object({
-        batch_min_healthy_percentage = optional(number,null)
-        batch_size_percentage        = optional(number,null)
-        comment                      = optional(string,null)
-        respect_pdb                  = optional(bool,null)
+      batch_min_healthy_percentage = optional(number, null)
+      batch_size_percentage        = optional(number, null)
+      comment                      = optional(string, null)
+      respect_pdb                  = optional(bool, null)
     })), [])
   }))
   default     = null
@@ -372,26 +372,26 @@ variable "tasks" {
 
 ## Block Device Mappings ##
 variable "block_device_mappings" {
-  type        = list(object({
-      device_name = optional(string,null)
-      delete_on_termination = optional(bool,null)
-      encrypted = optional(bool,null)
-      iops = optional(number,null)
-      kms_key_id = optional(string,null)
-      snapshot_id = optional(string,null)
-      throughput = optional(number,null)
-      volume_size = optional(number,null)
-      volume_type = optional(string,null)
-      dynamic_iops = optional(set(object({
-          base_size = optional(number,null)
-          resource = optional(string,null)
-          size_per_resource_unit = optional(number,null)
-      })), [])
-      dynamic_volume_size = optional(set(object({
-          base_size = optional(number,null)
-          resource = optional(string,null)
-          size_per_resource_unit = optional(number,null)
-      })), [])
+  type = list(object({
+    device_name           = optional(string, null)
+    delete_on_termination = optional(bool, null)
+    encrypted             = optional(bool, null)
+    iops                  = optional(number, null)
+    kms_key_id            = optional(string, null)
+    snapshot_id           = optional(string, null)
+    throughput            = optional(number, null)
+    volume_size           = optional(number, null)
+    volume_type           = optional(string, null)
+    dynamic_iops = optional(set(object({
+      base_size              = optional(number, null)
+      resource               = optional(string, null)
+      size_per_resource_unit = optional(number, null)
+    })), [])
+    dynamic_volume_size = optional(set(object({
+      base_size              = optional(number, null)
+      resource               = optional(string, null)
+      size_per_resource_unit = optional(number, null)
+    })), [])
   }))
   default     = []
   description = "Block Device Mapping Object"
@@ -409,8 +409,8 @@ variable "should_tag_volumes" {
 #Attach load balancers
 variable "attach_load_balancer" {
   type = list(object({
-    arn  = optional(string,null)
-    name = optional(string,null)
+    arn  = optional(string, null)
+    name = optional(string, null)
     type = string
   }))
   default     = null
@@ -420,8 +420,8 @@ variable "attach_load_balancer" {
 #Detach load balancers
 variable "detach_load_balancer" {
   type = list(object({
-    arn  = optional(string,null)
-    name = optional(string,null)
+    arn  = optional(string, null)
+    name = optional(string, null)
     type = string
   }))
   default     = null
