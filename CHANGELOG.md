@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.9.1"></a>
+## [v1.9.1] (July 23, 2025)
+
+  - fix: Fixing autoscale_headroom drift ([#57](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/57))
+  
+  
 <a name="v1.9.0"></a>
 ## [v1.9.0] (May 8, 2025)
 
+  - Changelog v1.9.0 ([#56](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/56))
   - added support for `startup_taints` ([#55](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/55))
   
   
@@ -164,7 +171,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.1...HEAD
+[v1.9.1]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.0...v1.9.1
 [v1.9.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.8.0...v1.9.0
 [v1.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.7.0...v1.8.0
 [v1.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.6.0...v1.7.0
