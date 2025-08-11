@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.10.0"></a>
+## [v1.10.0] (August 11, 2025)
+
+  - added `primary_ipv6` field to enable ipv6 address ([#60](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/60))
+  
+  
 <a name="v1.9.1"></a>
 ## [v1.9.1] (July 23, 2025)
 
+  - changelog ([#58](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/58))
   - fix: Fixing autoscale_headroom drift ([#57](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/57))
   
   
@@ -171,7 +178,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.1...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.10.0...HEAD
+[v1.10.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.1...v1.10.0
 [v1.9.1]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.0...v1.9.1
 [v1.9.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.8.0...v1.9.0
 [v1.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.7.0...v1.8.0
