@@ -46,6 +46,7 @@ resource "spotinst_ocean_aws" "ocean" {
   iam_instance_profile                               = var.worker_instance_profile_arn
   associate_public_ip_address                        = var.associate_public_ip_address
   associate_ipv6_address                             = var.associate_ipv6_address
+  primary_ipv6                                       = var.primary_ipv6
   root_volume_size                                   = var.root_volume_size
   monitoring                                         = var.monitoring
   ebs_optimized                                      = var.ebs_optimized
