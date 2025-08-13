@@ -109,6 +109,11 @@ variable "associate_ipv6_address" {
   default     = false
   description = "(Optional, Default: false) Configure IPv6 address allocation."
 }
+variable "primary_ipv6" {
+  type        = bool
+  default     = false
+  description = "(Optional, Default: false) Enables assignment of a primary IPv6 address to the cluster."
+}
 variable "root_volume_size" {
   type        = number
   default     = null
