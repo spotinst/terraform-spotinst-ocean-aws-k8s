@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.11.0"></a>
+## [v1.11.0] (August 13, 2025)
+
+  - update filter expression ([#62](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/62))
+  
+  
 <a name="v1.10.0"></a>
 ## [v1.10.0] (August 11, 2025)
 
+  - changelog update ([#61](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/61))
   - added `primary_ipv6` field to enable ipv6 address ([#60](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/60))
   
   
@@ -178,7 +185,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.10.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.11.0...HEAD
+[v1.11.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.10.0...v1.11.0
 [v1.10.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.1...v1.10.0
 [v1.9.1]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.0...v1.9.1
 [v1.9.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.8.0...v1.9.0
