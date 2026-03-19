@@ -92,6 +92,7 @@ resource "spotinst_ocean_aws" "ocean" {
   spot_percentage            = var.spot_percentage
   utilize_commitments        = var.utilize_commitments
   spread_nodes_by            = var.spread_nodes_by
+  max_replacements_percentage = var.max_replacements_percentage
 
   cluster_orientation {
     availability_vs_cost = var.availability_vs_cost

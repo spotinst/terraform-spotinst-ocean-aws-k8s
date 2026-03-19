@@ -178,6 +178,12 @@ variable "spot_percentage" {
   default     = null
   description = "The % of the cluster should be running on Spot vs OD. 100 means 100% of the cluster will be ran on Spot instances"
 }
+variable "max_replacements_percentage" {
+  type        = number
+  default     = 10
+  description = "Limit percentage of instances that can be replaced at once per run cycle (maps to Ocean strategy replacementLimitPercent)."
+}
+
 variable "utilize_commitments" {
   type        = bool
   default     = false
