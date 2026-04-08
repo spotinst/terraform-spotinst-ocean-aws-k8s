@@ -52,16 +52,32 @@ module "ocean-aws-k8s" {
   }
   ]
 
- startup_taints = [
-  {
-  key    = "example-key1"
-  value  = "example-value1"
-  effect = "NoExecute"
- },
-  {
-   key    = "example-key2"
-  value  = "example-value2"
-  effect = "NoSchedule"
+  startup_taints = [
+    {
+      key    = "example-key1"
+      value  = "example-value1"
+      effect = "NoExecute"
+    },
+    {
+      key    = "example-key2"
+      value  = "example-value2"
+      effect = "NoSchedule"
+    }
+  ]
+  optimization_windows = {
+    is_enabled = true
+    windows = [
+      {
+        cron_expression = "0 * * * 1"
+        duration        = "8d"
+        effects         = ["ignorePdb","ignoreRestrictScaleDown"]
+      }
+    ,
+      {
+        cron_expression = "0 0 * * 3"
+        duration        = "6h"
+        effects         = ["ignoreRestrictScaleDown"]
+      }
+    ]
   }
- ]
 }
