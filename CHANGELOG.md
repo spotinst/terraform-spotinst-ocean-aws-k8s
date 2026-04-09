@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.12.0"></a>
+## [v1.12.0] (April 9, 2026)
+
+  - Sptaut 19489 terraform optimization window for unrestricted ocean operations for aws ([#65](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/65))
+  
+  
 <a name="v1.11.0"></a>
 ## [v1.11.0] (August 13, 2025)
 
+  - changelog update ([#63](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/63))
   - update filter expression ([#62](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/62))
   
   
@@ -185,7 +192,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.11.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.12.0...HEAD
+[v1.12.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.11.0...v1.12.0
 [v1.11.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.10.0...v1.11.0
 [v1.10.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.1...v1.10.0
 [v1.9.1]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.0...v1.9.1
