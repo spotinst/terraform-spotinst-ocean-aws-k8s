@@ -152,13 +152,27 @@ resource "spotinst_ocean_aws" "ocean" {
 
   # Scheduled Task Ami Auto Update, Cluster Roll and shut down hours##
   dynamic "scheduled_task" {
-    for_each = var.shutdown_hours != null || var.tasks != null ? [1] : []
+    for_each = var.shutdown_hours != null || var.tasks != null || var.optimization_windows != null ? [1] : []
     content {
       dynamic "shutdown_hours" {
         for_each = var.shutdown_hours != null ? [var.shutdown_hours] : []
         content {
           is_enabled   = shutdown_hours.value.is_enabled
           time_windows = shutdown_hours.value.time_windows
+        }
+      }
+      dynamic "optimization_windows" {
+        for_each = var.optimization_windows != null ? [var.optimization_windows] : []
+        content {
+          is_enabled = optimization_windows.value.is_enabled
+          dynamic "windows" {
+            for_each = optimization_windows.value.windows != null ? optimization_windows.value.windows : []
+            content {
+              cron_expression = windows.value.cron_expression
+              duration        = windows.value.duration
+              effects         = windows.value.effects
+            }
+          }
         }
       }
       dynamic "tasks" {
