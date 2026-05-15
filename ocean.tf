@@ -90,6 +90,7 @@ resource "spotinst_ocean_aws" "ocean" {
   draining_timeout           = var.draining_timeout
   grace_period               = var.grace_period
   spot_percentage            = var.spot_percentage
+  max_replacement_limit_percentage = var.max_replacement_limit_percentage
   utilize_commitments        = var.utilize_commitments
   spread_nodes_by            = var.spread_nodes_by
 
