@@ -3,9 +3,16 @@
 
   
   
+<a name="v1.13.0"></a>
+## [v1.13.0] (May 15, 2026)
+
+  - feat(ocean AWS/cluster): Added support for MaxReplacementLimitPercentage under Strategy Object. ([#67](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/67))
+  
+  
 <a name="v1.12.0"></a>
 ## [v1.12.0] (April 9, 2026)
 
+  - changelog update ([#66](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/66))
   - Sptaut 19489 terraform optimization window for unrestricted ocean operations for aws ([#65](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/issues/65))
   
   
@@ -192,7 +199,8 @@
   - Initial commit
   
   
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.12.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.13.0...HEAD
+[v1.13.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.12.0...v1.13.0
 [v1.12.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.11.0...v1.12.0
 [v1.11.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.10.0...v1.11.0
 [v1.10.0]: https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/compare/v1.9.1...v1.10.0
