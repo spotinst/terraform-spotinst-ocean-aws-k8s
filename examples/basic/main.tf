@@ -64,6 +64,9 @@ module "ocean-aws-k8s" {
       effect = "NoSchedule"
     }
   ]
+
+  max_replacement_limit_percentage = 25
+
   optimization_windows = {
     is_enabled = true
     windows = [
